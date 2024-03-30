@@ -983,8 +983,8 @@ if __name__ == "__main__":
 
 
                         # Remove x axis from all density plots
-                        kept_names = gpGrob$layout$name[gpGrob$layout$name != "axis-b"]
-                        gpGrob <- gtable_filter(gpGrob, paste(kept_names, sep="", collapse="|"), trim=F)
+                        #kept_names = gpGrob$layout$name[gpGrob$layout$name != "axis-b"]
+                        #gpGrob <- gtable_filter(gpGrob, paste(kept_names, sep="", collapse="|"), trim=F)
 
                         # Find max width of y text and y label and max width of y text
                         maxWidth = grid::unit.pmax(maxWidth, gpGrob$widths[2+vs] + gpGrob$widths[3+vs]); # fix problems ggplot2 vs
@@ -1004,7 +1004,7 @@ if __name__ == "__main__":
 
                 # Reassign grob widths to align the plots
                 for (id in names(density_grobs)) {
-                        density_grobs[[id]]$widths[1] <- density_grobs[[id]]$widths[1] + maxWidth - (density_grobs[[id]]$widths[2+vs] + maxYtextWidth); # fix problems ggplot2 vs
+                        density_grobs[[id]]$widths[1] <- density_grobs[[id]]$widths[1] +2*maxWidth - (density_grobs[[id]]$widths[2+vs] + maxYtextWidth); # fix problems ggplot2 vs
                         density_grobs[[id]]$widths[3+vs] <- maxYtextWidth # fix problems ggplot2 vs
                 }
 
@@ -1019,7 +1019,7 @@ if __name__ == "__main__":
                 argrobs = arrangeGrob(
                         grobs=density_grobs,
                         ncol=1,
-                        heights = heights,
+                        heights = heights
                 );
 
                 # Save plot to file in the requested format
