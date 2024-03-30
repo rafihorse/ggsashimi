@@ -983,8 +983,8 @@ if __name__ == "__main__":
 
 
                         # Remove x axis from all density plots
-                        #kept_names = gpGrob$layout$name[gpGrob$layout$name != "axis-b"]
-                        #gpGrob <- gtable_filter(gpGrob, paste(kept_names, sep="", collapse="|"), trim=F)
+                        kept_names = gpGrob$layout$name[gpGrob$layout$name != "axis-b"]
+                        gpGrob <- gtable_filter(gpGrob, paste(kept_names, sep="", collapse="|"), trim=F)
 
                         # Find max width of y text and y label and max width of y text
                         maxWidth = grid::unit.pmax(maxWidth, gpGrob$widths[2+vs] + gpGrob$widths[3+vs]); # fix problems ggplot2 vs
