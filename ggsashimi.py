@@ -775,7 +775,7 @@ if __name__ == "__main__":
                 pdf(NULL) # just to remove the blank pdf produced by ggplotGrob
 
                 if(packageVersion('ggplot2') >= '3.0.0'){  # fix problems with ggplot2 vs >3.0.0
-                        vs = 1
+                        vs = 3
                 } else {
                         vs = 0
                 }
